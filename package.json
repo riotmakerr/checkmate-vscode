@@ -10,28 +10,34 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.newTextFile",
-        "onCommand:extension.loginToSF"
+        "onCommand:extension.scheduleBatch",
+        "onCommand:extension.executeBatch",
+        "onCommand:extension.insertFromAssetLibrary"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.newTextFile",
-                "title": "Checkmate: New Text File"
+                "command": "extension.scheduleBatch",
+                "title": "Checkmate: Schedule Batch"
             },
             {
-                "command": "extension.loginToSF",
-                "title": "Login to Salesforce"
+                "command": "extension.executeBatch",
+                "title": "Checkmate: Execute Batch"
+            },
+            {
+                "command": "extension.insertFromAssetLibrary",
+                "title": "Checkmate: Insert from Asset Library"
             }
         ],
         "menus": {
             "editor/context": [
                 {
-                    "command": "extension.loginToSF"
+                    "command": "extension.scheduleBatch",
+                    "when": "resourceFilename =~ /batch/ && resourceExtname == .cls"
                 },
                 {
-                    "command": "extension.loginToSF",
+                    "command": "extension.executeBatch",
                     "when": "resourceFilename =~ /batch/ && resourceExtname == .cls"
                 }
             ]
