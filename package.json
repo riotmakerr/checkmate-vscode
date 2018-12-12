@@ -24,7 +24,14 @@
                 "command": "extension.loginToSF",
                 "title": "Login to Salesforce"
             }
-        ]
+        ],
+        "menus": {
+          "editor/context": [
+            {
+              "command": "extension.loginToSF"
+            }
+          ]
+        }
     },
     "scripts": {
         "vscode:prepublish": "yarn run compile",
