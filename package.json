@@ -26,11 +26,15 @@
             }
         ],
         "menus": {
-          "editor/context": [
-            {
-              "command": "extension.loginToSF"
-            }
-          ]
+            "editor/context": [
+                {
+                    "command": "extension.loginToSF"
+                },
+                {
+                    "command": "extension.loginToSF",
+                    "when": "resourceFilename =~ /batch/ && resourceExtname == .cls"
+                }
+            ]
         }
     },
     "scripts": {
