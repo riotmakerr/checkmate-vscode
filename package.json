@@ -33,8 +33,7 @@
         "menus": {
             "editor/context": [
                 {
-                    "command": "extension.insertFromAssetLibrary",
-                    "when": "resourceFilename =~ /batch/ && resourceExtname == .cls"
+                    "command": "extension.insertFromAssetLibrary"
                 },
                 {
                     "command": "extension.executeBatch",
