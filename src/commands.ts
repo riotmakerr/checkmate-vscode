@@ -6,7 +6,7 @@ export function scheduleBatch(filename: string, schedule: string) {
 }
 
 export function executeBatch(fileBody: string) {
-    console.log('making request');
+    console.log('making request', fileBody);
 
     const opts = {
         method: 'POST',

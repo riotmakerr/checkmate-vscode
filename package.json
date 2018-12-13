@@ -37,7 +37,7 @@
                     "when": "resourceFilename =~ /batch/ && resourceExtname == .cls"
                 },
                 {
-                    "command": "extension.scheduleBatch",
+                    "command": "extension.executeBatch",
                     "when": "resourceExtname == .cls"
                 }
             ]
