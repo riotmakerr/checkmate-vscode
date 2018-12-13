@@ -37,7 +37,6 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     const insertAssetLibCmd = vscode.commands.registerCommand('extension.insertFromAssetLibrary', () => {
-        //var base64auth = btoa('kbhas:G4tLPa8nxhgQMxd9EHdD');
 
         const baseURI = 'https://api.bitbucket.org/2.0/repositories/acumensolutions/assetlibrary/src/master/apex/common';
 
@@ -45,7 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
             uri: baseURI,
             headers: {
                 'Content-Type': 'application/text',
-                'Authorization': 'Basic a2JoYXM6RzR0TFBhOG54aGdRTXhkOUVIZEQ='
+                'Authorization': 'base64 of user:pass here'
             }
         };
 
@@ -82,9 +81,6 @@ export function activate(context: vscode.ExtensionContext) {
                 });
             })
            .catch(err => console.error('it failed!', err));
-        
-
-        // curl -u kbhas:G4tLPa8nxhgQMxd9EHdD -X GET -H "Content-Type: application/json" https://api.bitbucket.org/2.0/repositories/acumensolutions/assetlibrary/src/master/apex/common/SObjectUtility.cls
     });
 
     context.subscriptions.push(scheduleBatchCmd, executeBatchCmd, insertAssetLibCmd);
