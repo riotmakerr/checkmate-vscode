@@ -10,7 +10,7 @@ export function executeBatch(fileBody: string) {
 
     const opts = {
         method: 'POST',
-        uri: 'http://localhost:56248/app/sfdx/deployclass',
+        uri: 'http://localhost:56248/app/sfdx/executeanonymous',
         headers: {
             'Content-Type': 'application/json'
         },

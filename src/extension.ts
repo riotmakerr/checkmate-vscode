@@ -20,19 +20,20 @@ export function activate(context: vscode.ExtensionContext) {
             });
     });
 
-    const executeBatchCmd = vscode.commands.registerCommand('extension.executeBatch', (uri: vscode.Uri) => {
+    const executeBatchCmd = vscode.commands.registerCommand('extension.executeBatch', async (uri: vscode.Uri) => {
         // insert execute batch
 
-        const fileBuf = fs.readFileSync(uri.path);
+        const jobnName = await vscode.window.showInputBox({ prompt: "Enter the name of the job" });
 
-        const fileStr = fileBuf.toString();
-        console.log('fileStr', fileStr);
+        if (jobnName) {
+            const batchName = await vscode.window.showInputBox({ prompt: "Enter the name of the batch job to run" });
 
-        // if (fileStr.toLowerCase().match(/System\.schedule/g)) {
-        if (fileStr !== '') {
-            executeBatch(fileStr);
-        } else {
-            vscode.window.showErrorMessage('This is not a batch script');
+            if (batchName) {
+                const schedule = await vscode.window.showInputBox({ prompt: "Enter schedule, or leave blank if none" });
+                const file = `${batchName} scheduledJob = new ${batchName}();\nSystem.schedule(${jobnName}, '${schedule}', scheduledJob);`
+
+                executeBatch(file);
+            }
         }
     })
 
