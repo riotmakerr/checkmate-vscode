@@ -33,12 +33,17 @@
         "menus": {
             "editor/context": [
                 {
+<<<<<<< Updated upstream
                     "command": "extension.insertFromAssetLibrary",
                     "when": "resourceFilename =~ /batch/ && resourceExtname == .cls"
+=======
+                    "command": "extension.scheduleBatch",
+                    "when": "resourceExtname == .cls"
+>>>>>>> Stashed changes
                 },
                 {
                     "command": "extension.executeBatch",
-                    "when": "resourceFilename =~ /batch/ && resourceExtname == .cls"
+                    "when": "resourceExtname == .cls"
                 }
             ]
         }
