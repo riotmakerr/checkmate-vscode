@@ -29,12 +29,12 @@ export function activate(context: vscode.ExtensionContext) {
 
             if (batchName) {
                 const schedule = await vscode.window.showInputBox({ prompt: "Enter schedule, or leave blank if none" });
-                const file = `${batchName} scheduledJob = new ${batchName}();\nSystem.schedule(${jobnName}, '${schedule}', scheduledJob);`
+                const file = `${batchName} scheduledJob = new ${batchName}();\nSystem.schedule(${jobnName}, '${schedule}', scheduledJob);`;
 
                 executeBatch(file);
             }
         }
-    })
+    });
 
     const insertAssetLibCmd = vscode.commands.registerCommand('extension.insertFromAssetLibrary', () => {
         //var base64auth = btoa('kbhas:G4tLPa8nxhgQMxd9EHdD');
@@ -56,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
                let jsonobj = JSON.parse(response);
                for(let value of jsonobj.values) {
                    picklist.push(value.path.substring(value.path.lastIndexOf('/') + 1));
-               }            
+               }
             })
             .then((response) => {
                 vscode.window.showQuickPick(picklist).then(value => {
